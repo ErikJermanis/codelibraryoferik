@@ -1,0 +1,64 @@
+$darkBlue: rgb(55, 66, 87);
+$coral: rgb(238, 145, 111);
+$white: white;
+$dimmed: rgba(255, 255, 255, 0.76);
+
+.navWrapper {
+  position: absolute;
+  width: 100%;
+  background: $darkBlue;
+  padding: .3em 1em;
+  display: flex;
+  align-items: center;
+}
+
+.navLogo {
+  width: 230px;
+}
+
+.verticalDivider {
+  width: 1px;
+  height: 44px;
+  background: $white;
+  margin: 0 1em;
+}
+
+.navH1 {
+  color: $white;
+  font-weight: 700;
+  margin-right: auto;
+}
+
+.navLinkSpan {
+  position: relative;
+  justify-self: flex-end;
+  padding: .5em;
+  padding-right: 1.2em;
+  margin: 0 1em;
+  color: $white;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 16px;
+    right: 2px;
+    border: 5px solid transparent;
+    border-top-color: $dimmed;
+  }
+}
+
+.anchorLikeButton {
+  border: none;
+  background: none;
+  color: $dimmed;
+  padding: .5em;
+
+  &:hover {
+    color: $coral;
+    cursor: pointer;
+  }
+}

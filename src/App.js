@@ -1,10 +1,13 @@
 import React from 'react';
 import './App.css';
+import Navbar from './components/navbar/navbar';
+import ItemGrid1 from './pages/itemGrid1/itemGrid1';
 
 function App() {
   return (
     <div>
-      yo ma man you rock
+      <Navbar />
+      <ItemGrid1 />
     </div>
   );
 }
