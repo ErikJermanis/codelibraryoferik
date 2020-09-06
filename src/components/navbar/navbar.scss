@@ -6,6 +6,7 @@ $dimmed: rgba(255, 255, 255, 0.76);
 .navWrapper {
   position: absolute;
   width: 100%;
+  height: 63px;
   background: $darkBlue;
   padding: .3em 1em;
   display: flex;
@@ -13,7 +14,7 @@ $dimmed: rgba(255, 255, 255, 0.76);
 }
 
 .navLogo {
-  width: 230px;
+  width: 210px;
 }
 
 .verticalDivider {

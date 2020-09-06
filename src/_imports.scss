@@ -1,0 +1,4 @@
+@mixin pagePadding($global) {
+  padding: $global;
+  padding-top: 4em + $global;
+}

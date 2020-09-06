@@ -1,0 +1,46 @@
+$passiveColor: rgb(155, 155, 155);
+$activeColor: black;
+
+@mixin shrinkLabel {
+  transform: translateY(-18px);
+  font-size: .95rem;
+  color: $activeColor;
+  transition: 300ms ease all;
+}
+
+.formInput1-group {
+  position: relative;
+  margin-top: 2em;
+
+  .formInput1-input {
+    color: $passiveColor;
+    padding: .3em;
+    width: 100%;
+    border: none;
+    border-radius: 0;
+    border-bottom: 2px solid $passiveColor;
+
+    &:focus {
+      outline: none;
+      border-bottom: 2px solid $activeColor;
+    }
+
+    &:focus ~ .formInput1-label {
+      @include shrinkLabel();
+    }
+  }
+
+  .formInput1-label {
+    color: $passiveColor;
+    position: absolute;
+    pointer-events: none;
+    font-size: 1.05rem;
+    font-weight: 500;
+    left: 5px;
+    transition: 300ms ease all;
+
+    &.shrink {
+      @include shrinkLabel();
+    }
+  }
+}

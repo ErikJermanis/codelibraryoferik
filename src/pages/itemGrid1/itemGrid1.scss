@@ -1,0 +1,5 @@
+@import '../../imports';
+
+.itemGrid1Wrapper {
+  @include pagePadding(.5em);
+}
