@@ -1,3 +1,8 @@
+$darkBlue: rgb(55, 66, 87);
+$coral: rgb(238, 145, 111);
+$white: white;
+$dimmed: rgba(255, 255, 255, 0.692);
+
 @mixin pagePadding($global) {
   padding: $global;
   padding-top: 4em + $global;

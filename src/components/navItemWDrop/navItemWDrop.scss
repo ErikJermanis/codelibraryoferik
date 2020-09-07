@@ -1,0 +1,49 @@
+@import '../../imports';
+
+.relativePosition {
+  position: relative;
+}
+
+.navItemWDrop-span {
+  position: relative;
+  justify-self: flex-end;
+  padding: .5em;
+  padding-right: 1.2em;
+  margin: 0 1em;
+  color: $white;
+  user-select: none;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 16px;
+    right: 2px;
+    border: 5px solid transparent;
+    border-top-color: $dimmed;
+  }
+}
+
+.dropdownMenu-menu {
+  background: $darkBlue;
+  position: absolute;
+  top: 41px;
+  left: 7px;
+  width: 180px;
+  display: flex;
+  flex-direction: column;
+}
+
+.dropdownItem-a,
+.dropdownItem-Link {
+  padding: .5em 1em;
+  text-decoration: none;
+  color: white;
+
+  &:hover {
+    color: $coral;
+  }
+}

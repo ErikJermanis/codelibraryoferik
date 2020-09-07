@@ -1,7 +1,4 @@
-$darkBlue: rgb(55, 66, 87);
-$coral: rgb(238, 145, 111);
-$white: white;
-$dimmed: rgba(255, 255, 255, 0.76);
+@import '../../imports';
 
 .navWrapper {
   position: absolute;
@@ -28,28 +25,6 @@ $dimmed: rgba(255, 255, 255, 0.76);
   color: $white;
   font-weight: 700;
   margin-right: auto;
-}
-
-.navLinkSpan {
-  position: relative;
-  justify-self: flex-end;
-  padding: .5em;
-  padding-right: 1.2em;
-  margin: 0 1em;
-  color: $white;
-
-  &:hover {
-    cursor: pointer;
-  }
-
-  &::after {
-    content: '';
-    position: absolute;
-    top: 16px;
-    right: 2px;
-    border: 5px solid transparent;
-    border-top-color: $dimmed;
-  }
 }
 
 .anchorLikeButton {
