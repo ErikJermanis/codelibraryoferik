@@ -35,6 +35,8 @@
   width: 180px;
   display: flex;
   flex-direction: column;
+  transition: height 300ms ease;
+  
 }
 
 .dropdownItem-a,
@@ -42,8 +44,16 @@
   padding: .5em 1em;
   text-decoration: none;
   color: white;
+  display: flex;
+  align-items: center;
+  text-align: left;
 
   &:hover {
+    cursor: pointer;
     color: $coral;
   }
+}
+
+.dropdownItem-iconRight {
+  margin-left: auto;
 }
