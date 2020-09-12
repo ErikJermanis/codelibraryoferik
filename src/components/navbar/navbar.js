@@ -25,41 +25,45 @@ const Navbar = (props) => {
       <h1 className="navH1">React Component Library</h1>
 
       <NavItemWDrop idx="1" label="Layouts">
-        <CSSTransition
-          in={props.activeMenu1 === 'main'}
-          unmountOnExit
-          timeout={300}
-          onEnter={calcHeight}
-          classNames="menu-primary"
-        >
-          <DropdownMenu>
-            <DropdownItem goToPage="/form1">Input form 1</DropdownItem>
-            <DropdownItem idx="1" goToMenu="TML-2" rightIcon={<ChevronRight className="chevronIcon" />}>Test multi level</DropdownItem>
-          </DropdownMenu>
-        </CSSTransition>
-        <CSSTransition
-          in={props.activeMenu1 === 'TML-2'}
-          unmountOnExit
-          timeout={300}
-          onEnter={calcHeight}
-          classNames="menu-secondary"
-        >
-          <DropdownMenu>
-            <DropdownItem idx="1" goToMenu="main" leftIcon={<ChevronLeft className="chevronIcon" />}>Back</DropdownItem>
-            <DropdownItem goToPage="/">Test multi level</DropdownItem>
-            <DropdownItem goToPage="/">Test multi level 2</DropdownItem>
-          </DropdownMenu>
-        </CSSTransition>
+        <DropdownMenu idx="1">
+          <CSSTransition
+            in={props.activeMenu1 === 'main'}
+            unmountOnExit
+            timeout={300}
+            onEnter={calcHeight}
+            classNames="menu-primary"
+          >
+            <div className="menu">
+              <DropdownItem idx="1" goToPage="/form1">Input form 1</DropdownItem>
+              <DropdownItem idx="1" goToMenu="TML-2" rightIcon={<ChevronRight className="chevronIcon" />}>Test multi level</DropdownItem>
+            </div>
+          </CSSTransition>
+        {/* </DropdownMenu>
+        <DropdownMenu> */}
+          <CSSTransition
+            in={props.activeMenu1 === 'TML-2'}
+            unmountOnExit
+            timeout={300}
+            onEnter={calcHeight}
+            classNames="menu-secondary"
+          >
+            <div className="menu">
+              <DropdownItem idx="1" goToMenu="main" leftIcon={<ChevronLeft className="chevronIcon" />}>Back</DropdownItem>
+              <DropdownItem idx="1" goToPage="/">Test multi level</DropdownItem>
+              <DropdownItem idx="1" goToPage="/">Test multi level 2</DropdownItem>
+            </div>
+          </CSSTransition>
+        </DropdownMenu>
       </NavItemWDrop>
 
       <NavItemWDrop idx="2" label="Components">
-        <DropdownMenu>
-          <DropdownItem goToPage="/">test</DropdownItem>
-          <DropdownItem goToPage="/">test</DropdownItem>
-          <DropdownItem goToPage="/">test</DropdownItem>
-          <DropdownItem goToPage="/">test</DropdownItem>
-          <DropdownItem goToPage="/">test</DropdownItem>
-          <DropdownItem goToPage="/">test</DropdownItem>
+        <DropdownMenu idx="2">
+          <DropdownItem idx="2" goToPage="/">test</DropdownItem>
+          <DropdownItem idx="2" goToPage="/">test</DropdownItem>
+          <DropdownItem idx="2" goToPage="/">test</DropdownItem>
+          <DropdownItem idx="2" goToPage="/">test</DropdownItem>
+          <DropdownItem idx="2" goToPage="/">test</DropdownItem>
+          <DropdownItem idx="2" goToPage="/">test</DropdownItem>
         </DropdownMenu>
       </NavItemWDrop>
 

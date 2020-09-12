@@ -13,7 +13,11 @@ const navReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         item1: action.payload,
-        item2: false
+        item2: false,
+        activeMenu1: 'main',
+        activeMenu2: 'main',
+        menuHeight1: null,
+        menuHeight2: null
       };
     case 'ITEM2_TOGGLE':
       return {

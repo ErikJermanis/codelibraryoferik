@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './navItemWDrop.scss';
 import { Link } from 'react-router-dom';
-// import { CSSTransition } from 'react-transition-group';
 import { connect } from 'react-redux';
 import { toggleNavItem, setActiveMenu } from '../../redux/navigation/navActions';
 
 const mapDispatchToPropsDI = dispatch => ({
-  setActiveMenu: (idx, menu) => dispatch(setActiveMenu(idx, menu))
+  setActiveMenu: (idx, menu) => dispatch(setActiveMenu(idx, menu)),
+  toggleNavItem: (idx, action) => dispatch(toggleNavItem(idx, action))
 })
 
 export const DropdownItem = connect(null, mapDispatchToPropsDI)((props) => {
@@ -18,7 +18,7 @@ export const DropdownItem = connect(null, mapDispatchToPropsDI)((props) => {
       <span className="dropdownItem-iconRight">{props.rightIcon}</span>
     </a>
     :
-    <Link to={props.goToPage} className="dropdownItem-Link">
+    <Link onClick={() => props.toggleNavItem(props.idx, false)} to={props.goToPage} className="dropdownItem-Link">
       <span className="dropdownItem-iconLeft">{props.leftIcon}</span>
       {props.children}
       <span className="dropdownItem-iconRight">{props.rightIcon}</span>
@@ -27,15 +27,14 @@ export const DropdownItem = connect(null, mapDispatchToPropsDI)((props) => {
 });
 
 const mapStateToPropsDM = state => ({
-  menuHeight1: state.nav.menuHeight1
+  menuHeight1: state.nav.menuHeight1,
+  menuHeight2: state.nav.menuHeight2,
 })
 
 export const DropdownMenu = connect(mapStateToPropsDM)((props) => {
 
-  const [activeMenu, setActiveMenu] = useState('main');
-
   return(
-    <div className="dropdownMenu-menu" style={{ height: props.menuHeight1 }}>
+    <div className="dropdownMenu-menu" style={{ height: props[`menuHeight${props.idx}`] }}>
       {props.children}
     </div>
   )
