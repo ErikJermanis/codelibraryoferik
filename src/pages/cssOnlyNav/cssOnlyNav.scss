@@ -1,0 +1,59 @@
+@import '../../imports';
+
+.cssOnlyNav-wrapper {
+  @include pagePadding(3em);
+
+  .cssOnlyNav-nav {
+    color: white;
+    background: rgb(51, 51, 51);
+  }
+}
+
+.cssOnlyNav-ul1 {
+  list-style-type: none;
+  display: flex;
+  justify-content: flex-end;
+}
+
+#clickable:focus-within .cssOnlyNav-dropUl {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.cssOnlyNav-li1 {
+  margin: 1em;
+  position: relative;
+}
+
+.cssOnlyNav-a {
+  padding: 1em;
+  color: white;
+  text-decoration: none;
+
+  &:hover {
+    cursor: pointer;
+    background: rgb(78, 78, 78);
+  }
+}
+
+.cssOnlyNav-dropUl {
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  list-style-type: none;
+  background: rgb(51, 51, 51);
+  top: 65px;
+  display: flex;
+  padding-top: .8em;
+  clip-path: polygon(0 12px, 44% 12px, 50% 0, 56% 12px, 100% 12px, 100% 100%, 0 100%);
+  transform: translate(-24%);
+}
+
+.cssOnlyNav-dropLi {
+  padding: .8em;
+
+  &:hover {
+    cursor: pointer;
+    background: rgb(77, 77, 77);
+  }
+}

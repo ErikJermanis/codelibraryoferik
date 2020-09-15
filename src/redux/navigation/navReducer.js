@@ -4,7 +4,8 @@ const INITIAL_STATE = {
   activeMenu1: 'main',
   activeMenu2: 'main',
   menuHeight1: null,
-  menuHeight2: null
+  menuHeight2: null,
+  currentPage: 'React Component Library'
 }
 
 const navReducer = (state = INITIAL_STATE, action) => {
@@ -44,6 +45,11 @@ const navReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         menuHeight2: action.payload
+      }
+    case 'SET_CURRENT_PAGE':
+      return {
+        ...state,
+        currentPage: action.payload
       }
     default:
       return state;

@@ -7,7 +7,7 @@ import { NavItemWDrop, DropdownMenu, DropdownItem } from '../navItemWDrop/navIte
 import './navbar.scss';
 import { connect } from 'react-redux'
 import { CSSTransition } from 'react-transition-group';
-import { setActiveMenu, setMenuHeight } from '../../redux/navigation/navActions';
+import { setCurrentPage, setMenuHeight } from '../../redux/navigation/navActions';
 
 const Navbar = (props) => {
 
@@ -18,11 +18,11 @@ const Navbar = (props) => {
 
   return(
     <nav className="navWrapper">
-      <Link to="/">
+      <Link to="/" onClick={() => props.setCurrentPage('React Component Library')}>
         <MercLogoWhite className="navLogo" />
       </Link>
       <div className="verticalDivider" />
-      <h1 className="navH1">React Component Library</h1>
+      <h1 className="navH1">{props.currentPage}</h1>
 
       <NavItemWDrop idx="1" label="Layouts">
         <DropdownMenu idx="1">
@@ -34,12 +34,12 @@ const Navbar = (props) => {
             classNames="menu-primary"
           >
             <div className="menu">
-              <DropdownItem idx="1" goToPage="/form1">Input form 1</DropdownItem>
+              <DropdownItem onClick={() => props.setCurrentPage('Input Form 1')} idx="1" goToPage="/form1">Input form 1</DropdownItem>
+              <DropdownItem onClick={() => props.setCurrentPage('Dropdown navbar with css only')} idx="1" goToPage="/cssOnlyNav">Dropdown navbar with css only</DropdownItem>
+              <DropdownItem onClick={() => props.setCurrentPage('Showcase cards 1')} idx="1" goToPage="/showcaseCards1">Showcase cards 1</DropdownItem>
               <DropdownItem idx="1" goToMenu="TML-2" rightIcon={<ChevronRight className="chevronIcon" />}>Test multi level</DropdownItem>
             </div>
           </CSSTransition>
-        {/* </DropdownMenu>
-        <DropdownMenu> */}
           <CSSTransition
             in={props.activeMenu1 === 'TML-2'}
             unmountOnExit
@@ -75,11 +75,13 @@ const Navbar = (props) => {
 
 const mapStateToProps = state => ({
   activeMenu1: state.nav.activeMenu1,
-  activeMenu2: state.nav.activeMenu2
+  activeMenu2: state.nav.activeMenu2,
+  currentPage: state.nav.currentPage
 });
 
 const mapDispatchToProps = dispatch => ({
-  setMenuHeight: (idx, height) => dispatch(setMenuHeight(idx, height))
+  setMenuHeight: (idx, height) => dispatch(setMenuHeight(idx, height)),
+  setCurrentPage: (page) => dispatch(setCurrentPage(page))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Navbar);

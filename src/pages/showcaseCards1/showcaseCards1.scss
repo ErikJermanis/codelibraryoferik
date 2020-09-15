@@ -1,0 +1,12 @@
+@import '../../imports';
+
+.showcaseCards1-wrapper {
+  @include pagePadding(5em);
+
+  .container {
+    width: 500px;
+    height: 300px;
+    margin: auto;
+    background: black
+  }
+}

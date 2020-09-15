@@ -12,3 +12,8 @@ export const setMenuHeight = (idx, height) => ({
   type: `SET_MENU_HEIGHT${idx}`,
   payload: height
 });
+
+export const setCurrentPage = (page) => ({
+  type: 'SET_CURRENT_PAGE',
+  payload: page
+})
