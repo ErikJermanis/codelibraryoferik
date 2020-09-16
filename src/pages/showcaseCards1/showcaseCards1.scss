@@ -1,5 +1,29 @@
 @import '../../imports';
 
+@keyframes fadeInTop {
+  0% {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInBottom {
+  0% {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
 .showcaseCards1-wrapper {
   @include pagePadding(5em);
 
@@ -7,6 +31,75 @@
     width: 500px;
     height: 300px;
     margin: auto;
-    background: black
+    display: grid;
+    grid-template-columns: 1fr 12fr;
+    grid-template-rows: 1fr 30px 1fr;
+    column-gap: .6em;
+
+    .arrUp, .arrDown {
+      width: 20px;
+      justify-self: center;
+
+      &:hover {
+        fill: rgb(116, 94, 55);
+        cursor: pointer;
+        transition: .3s;
+      }
+    }
+
+    .arrUp {
+      transform: rotate(-90deg);
+      grid-area: 1/1/2/2;
+      align-self: end;
+      margin-bottom: .8em;
+
+      &:hover {
+        transform: scale(1.2) rotate(-90deg);
+        transition: .15s;
+      }
+    }
+
+    .arrDown {
+      transform: rotate(90deg);
+      grid-area: 3/1/4/2;
+      margin-top: .8em;
+
+      &:hover {
+        transform: scale(1.2) rotate(90deg);
+        transition: .15s;
+      }
+    }
+
+    .numLabel {
+      grid-area: 2/1/3/2;
+      justify-self: center;
+      align-self: center;
+      font-size: 1.7rem;
+      font-weight: 500;
+      user-select: none;
+    }
+
+    .cardHeader {
+      grid-area: 1/2/2/3;
+      align-self: end;
+      font-size: 1.65rem;
+      font-weight: 700;
+      color: rgb(78, 78, 78);
+      animation: .3s fadeInBottom ease;
+    }
+
+    .cardLine {
+      grid-area: 2/2/3/3;
+      align-self: center;
+      border: none;
+      background: #808080;
+      height: 1px;
+      width: 100%;
+    }
+
+    .cardParagraph {
+      grid-area: 3/2/4/3;
+      animation: .6s fadeInTop ease;
+    }
   }
 }
